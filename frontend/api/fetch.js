@@ -8,3 +8,7 @@ const config = axios.create({
 export const getProductos = () => {
     return config.get()
 }
+
+export const postProductos = (producto) => {
+    return config.post('/',producto)
+}
