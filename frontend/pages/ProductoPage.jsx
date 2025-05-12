@@ -1,5 +1,24 @@
+import { useEffect, useState } from "react"
+import { getProductos } from "../api/fetch"
+import { Producto } from "../components/Producto"
+
 export const ProductoPage = () => {
+
+  const[productos,setProductos] = useState([])
+
+  useEffect(() => {
+    async function loadProductos() {
+      const res = await getProductos()
+      setProductos(res.data)
+    }
+    loadProductos()
+  },[])
+
   return (
-    <h1>Productos Page</h1>
+    <div>
+      {productos.map(producto => (
+        <Producto key={producto.id} nombre={producto.nombre} precio={producto.precio} stock={producto.stock} descripcion={producto.descripcion}/>
+      ))}
+    </div>
   )
 }
