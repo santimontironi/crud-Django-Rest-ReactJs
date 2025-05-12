@@ -19,6 +19,10 @@ export const ProductoPage = () => {
       {productos.map(producto => (
         <Producto key={producto.id} nombre={producto.nombre} precio={producto.precio} stock={producto.stock} descripcion={producto.descripcion}/>
       ))}
+
+      {productos.length == 0 && (
+        <h1>No hay productos agregados.</h1>
+      )}
     </div>
   )
 }
