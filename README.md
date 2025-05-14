@@ -1,3 +1,3 @@
-# Crud de productos con Django Rest + ReactJS + MySql
+# Crud de productos con Django Rest + ReactJS + PostgreSQL
 
 ## Proyecto en desarrollo
