@@ -78,15 +78,14 @@ WSGI_APPLICATION = 'productos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'gestor', 
-        'USER': 'root',          
-        'PASSWORD': '',         
-        'HOST': 'localhost',                   
-        'PORT': '3306',                        
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gestor',        
+        'USER': 'django',                 
+        'PASSWORD': 'django',
+        'HOST': 'localhost',              
+        'PORT': '5432'                
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
