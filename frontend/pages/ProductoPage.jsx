@@ -15,9 +15,12 @@ export const ProductoPage = () => {
   },[])
 
   return (
-    <div>
+    <div className="grid grid-cols-3 w-full mt-7 place-content-center place-items-center gap-3 p-4">
+
       {productos.map(producto => (
-        <Producto key={producto.id} nombre={producto.nombre} precio={producto.precio} stock={producto.stock} descripcion={producto.descripcion}/>
+        <div className="border-white p-3 w-100 border-2 cursor-pointer mt-6 bg-gray-950 text-white">
+          <Producto key={producto.id} nombre={producto.nombre} precio={producto.precio} stock={producto.stock} descripcion={producto.descripcion}/>
+        </div>
       ))}
 
       {productos.length == 0 && (

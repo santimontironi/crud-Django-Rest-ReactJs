@@ -5,14 +5,16 @@ import { Navigation } from "../components/Navigation";
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <Navigation/>
-      <Routes>
-        <Route path="/" element={<Navigate to = '/productos' />} />
-        <Route path="/productos" element={<ProductoPage/>}/>
-        <Route path="/productoForm" element={<FormPage/>}/>
-      </Routes>
-    </BrowserRouter>
+    <div className="w-full bg-blue-600">
+      <BrowserRouter>
+        <Navigation/>
+        <Routes>
+          <Route path="/" element={<Navigate to = '/productos' />} />
+          <Route path="/productos" element={<ProductoPage/>}/>
+          <Route path="/productoForm" element={<FormPage/>}/>
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 
