@@ -12,3 +12,7 @@ export const getProductos = () => {
 export const postProductos = (producto) => {
     return config.post('/',producto)
 }
+
+export const getProducto = (id) => {
+    return config.get(`/${id}/`)
+}
