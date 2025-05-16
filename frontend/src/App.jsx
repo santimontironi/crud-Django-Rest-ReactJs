@@ -10,8 +10,9 @@ export const App = () => {
         <Navigation/>
         <Routes>
           <Route path="/" element={<Navigate to = '/productos' />} />
-          <Route path="/productos" element={<ProductoPage/>}/>
-          <Route path="/productoForm" element={<FormPage/>}/>
+          <Route path="/productos" element={<ProductoPage/>} />
+          <Route path="/productoForm" element={<FormPage/>} />
+          <Route path="/producto/:id" element={<FormPage/>} />
         </Routes>
       </BrowserRouter>
     </div>
