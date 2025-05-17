@@ -1,19 +1,35 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { postProductos } from "../api/fetch";
 import { toast } from "react-hot-toast";
+import { useEffect } from "react";
+import { getProducto } from "../api/fetch";
 
 export const FormPage = () => {
 
   const { register, handleSubmit, formState: { errors }, setValue} = useForm() //register conecta cada input al sistema de React Hook Form (sabe su valor, cuándo cambia, etc.), setValue es para darle valores a los inputs.
 
   const navigate = useNavigate()
+  const params = useParams()
 
   async function handleForm(data){
     await postProductos(data)
     navigate('/productos')
     toast.success('Producto agregado correctamente')
   }
+
+  useEffect(() => {
+    async function datosProductos(){
+      if(params.id){
+        const res = await getProducto(params.id)
+        setValue('nombre',res.data.nombre)
+        setValue('descripcion',res.data.descripcion)
+        setValue('precio',res.data.precio)
+        setValue('stock',res.data.stock)
+      }
+    }
+    datosProductos()
+  },[params.id])
 
   return (
     <div>
