@@ -50,7 +50,15 @@ export const FormPage = () => {
           <label htmlFor="stock">Stock</label>
           <input type="number" id="stock" name="stock" {...register("stock", { required: true })} />
         </div>
-        <input type="submit" value='Agregar producto' />
+        {params.id ? (
+          <div>
+            <input type="submit" value='Eliminar' />
+            <input type="submit" value='Editar' />
+          </div>
+        ) : (
+          <input type="submit" value='Agregar producto' />
+        )}
+
       </form>
     </div>
   )
