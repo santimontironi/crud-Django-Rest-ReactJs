@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 export const FormPage = () => {
 
-  const { register, handleSubmit, formState: { errors }, setValue} = useForm() //register conecta cada input al sistema de React Hook Form (sabe su valor, cuándo cambia, etc.), setValue es para darle valores a los inputs.
+  const { register, handleSubmit, setValue} = useForm() //register conecta cada input al sistema de React Hook Form (sabe su valor, cuándo cambia, etc.), setValue es para darle valores a los inputs.
 
   const navigate = useNavigate()
   const params = useParams()
