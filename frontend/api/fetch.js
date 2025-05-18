@@ -16,3 +16,7 @@ export const postProductos = (producto) => {
 export const getProducto = (id) => {
     return config.get(`/${id}/`)
 }
+
+export const deleteProducto = (id) => {
+    return config.delete(`/${id}/`)
+}
