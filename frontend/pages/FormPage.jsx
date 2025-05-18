@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { postProductos } from "../api/fetch";
+import { postProductos, getProducto, deleteProducto } from "../api/fetch";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
-import { getProducto } from "../api/fetch";
 
 export const FormPage = () => {
 
@@ -31,6 +30,14 @@ export const FormPage = () => {
     datosProductos()
   },[params.id])
 
+  const handleEliminar = async () => {
+    const aceptar = window.confirm('¿Estas seguro de eliminar este producto?')
+    if(aceptar){
+      await deleteProducto(params.id)
+      navigate('/productos')
+    }
+  }
+
   return (
     <div>
       <form method="post" onSubmit={handleSubmit(handleForm)}>
@@ -52,7 +59,7 @@ export const FormPage = () => {
         </div>
         {params.id ? (
           <div>
-            <input type="submit" value='Eliminar' />
+            <input type="submit" value='Eliminar' onClick={handleEliminar} />
             <input type="submit" value='Editar' />
           </div>
         ) : (
