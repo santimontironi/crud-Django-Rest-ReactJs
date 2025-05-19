@@ -21,6 +21,6 @@ export const deleteProducto = (id) => {
     return config.delete(`/${id}/`)
 }
 
-export const putProducto = (id) => {
-    return config.put(`/${id}/`)
+export const putProducto = (id, data) => {
+    return config.put(`/${id}/`, data)
 }

@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { postProductos, getProducto, deleteProducto } from "../api/fetch";
+import { postProductos, getProducto, deleteProducto, putProducto } from "../api/fetch";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
 
 export const FormPage = () => {
 
-  const { register, handleSubmit, setValue} = useForm() //register conecta cada input al sistema de React Hook Form (sabe su valor, cuándo cambia, etc.), setValue es para darle valores a los inputs.
+  const { register, handleSubmit, setValue, getValues} = useForm() //register conecta cada input al sistema de React Hook Form (sabe su valor, cuándo cambia, etc.), setValue es para darle valores a los inputs.
 
   const navigate = useNavigate()
   const params = useParams()
@@ -39,6 +39,15 @@ export const FormPage = () => {
     }
   }
 
+  const handleEditar = async () => {
+    const aceptar = window.confirm('¿Estas seguro que deseas editar este producto?')
+    if(aceptar){
+      const data = getValues()
+      await putProducto(params.id,data)
+      navigate('/productos')
+    }
+  }
+
   return (
     <div>
       <form method="post" onSubmit={handleSubmit(handleForm)}>
@@ -61,7 +70,7 @@ export const FormPage = () => {
         {params.id ? (
           <div>
             <input type="submit" value='Eliminar' onClick={handleEliminar} />
-            <input type="submit" value='Editar' />
+            <input type="submit" value='Editar' onClick={handleEditar} />
           </div>
         ) : (
           <input type="submit" value='Agregar producto' />
