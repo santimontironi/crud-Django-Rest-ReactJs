@@ -20,3 +20,7 @@ export const getProducto = (id) => {
 export const deleteProducto = (id) => {
     return config.delete(`/${id}/`)
 }
+
+export const putProducto = (id) => {
+    return config.put(`/${id}/`)
+}

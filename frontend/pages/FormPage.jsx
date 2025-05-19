@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { postProductos, getProducto, deleteProducto } from "../api/fetch";
