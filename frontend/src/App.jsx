@@ -5,7 +5,7 @@ import { Navigation } from "../components/Navigation";
 
 export const App = () => {
   return (
-    <div className="h-screen w-full bg-blue-600">
+    <div className="min-h-screen w-full bg-blue-600">
       <BrowserRouter>
         <Navigation/>
         <Routes>
