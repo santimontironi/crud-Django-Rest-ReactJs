@@ -5,7 +5,9 @@ import { Producto } from "../components/Producto"
 export const ProductoPage = () => {
 
   const[productos,setProductos] = useState([])
-
+  
+  const[busqueda,setBusqueda] = useState('')
+  
   useEffect(() => {
     async function loadProductos() {
       const res = await getProductos()
@@ -15,10 +17,10 @@ export const ProductoPage = () => {
   },[])
 
   return (
-    <div>
+    <div className="pb-5">
 
       <form className="mt-4 flex gap-5 align-center justify-center m-auto" method="post">
-          <input className="bg-white text-dark shadow-[10px_5px_10px_#000] p-2 w-[300px]" type="text" placeholder="Busqueda de producto" />
+          <input className="bg-white text-dark shadow-[10px_5px_10px_#000] p-2 w-[300px]" type="text" placeholder="Busqueda de producto" onChange={(e) => setBusqueda(e.target.value)} />
           <input className="bg-black text-white p-1 w-[70px] cursor-pointer hover:bg-cyan-950" type="submit" value="Buscar" />
       </form>
 
