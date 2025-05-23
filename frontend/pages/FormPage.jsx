@@ -49,23 +49,23 @@ export const FormPage = () => {
   }
 
   return (
-    <div>
-      <form method="post" onSubmit={handleSubmit(handleForm)}>
-        <div>
+    <div className="flex justify-center items-center h-[87vh] w-full bg-amber-200">
+      <form className="flex flex-col justify-center items-center h-[500px] gap-5 rounded-3xl w-[350px] bg-white shadow-[5px_10px_15px_#000]" method="post" onSubmit={handleSubmit(handleForm)}>
+        <div className="flex flex-col gap-2">
           <label htmlFor="nombre">Nombre</label>
-          <input type="text" name="nombre" id="nombre" placeholder="Ingrese el nombre del producto" {...register("nombre", { required: true })}/>
+          <input className="p-3 bg-blue-500 w-[300px] focus:text-white focus:shadow-[5px_5px_8px_#000]" id="nombre" type="text" name="nombre" placeholder="Ingrese el nombre del producto" {...register("nombre", { required: true })}/>
         </div>
         <div>
-          <label htmlFor="descripcion">Descripción</label>
-          <input type="text" name="descripcion" id="descripcion" placeholder="Ingrese la descripción del producto" {...register("descripcion", { required: true })}/>
+          <label className="flex flex-col gap-2" htmlFor="descripcion">Descripción</label>
+          <input className="p-3 bg-blue-500 w-[300px] focus:text-white focus:shadow-[5px_5px_8px_#000]" type="text" name="descripcion" id="descripcion" placeholder="Ingrese la descripción del producto" {...register("descripcion", { required: true })}/>
         </div>
         <div>
-          <label htmlFor="precio">Precio</label>
-          <input type="number" id="precio" name="precio"  {...register("precio", { required: true })}/>
+          <label className="flex flex-col gap-2" htmlFor="precio">Precio</label>
+          <input className="p-3 bg-blue-500 w-[300px] focus:text-white focus:shadow-[5px_5px_8px_#000]" type="number" id="precio" name="precio" placeholder="Ingrese el precio del producto"  {...register("precio", { required: true })}/>
         </div>
         <div>
-          <label htmlFor="stock">Stock</label>
-          <input type="number" id="stock" name="stock" {...register("stock", { required: true })} />
+          <label className="flex flex-col gap-2" htmlFor="stock">Stock</label>
+          <input className="p-3 bg-blue-500 w-[300px] focus:text-white focus:shadow-[5px_5px_8px_#000]" type="number" name="stock" id="stock" placeholder="Ingrese la cantidad de stock" {...register("stock", { required: true })} /> 
         </div>
         {params.id ? (
           <div>
@@ -73,7 +73,7 @@ export const FormPage = () => {
             <input type="submit" value='Editar' onClick={handleEditar} />
           </div>
         ) : (
-          <input type="submit" value='Agregar producto' />
+          <input type="submit" className="bg-amber-300 p-4 cursor-pointer hover:bg-amber-400" value='Agregar producto' />
         )}
 
       </form>
