@@ -10,7 +10,11 @@ export const getProductos = () => {
 }
 
 export const postProductos = (producto) => {
-    return config.post('/',producto)
+    return config.post('/',producto,{
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+    })
 }
 
 export const getProducto = (id) => {

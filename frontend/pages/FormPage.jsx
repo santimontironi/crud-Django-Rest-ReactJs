@@ -12,10 +12,21 @@ export const FormPage = () => {
   const navigate = useNavigate()
   const params = useParams()
 
-  async function handleForm(data){
-    await postProductos(data)
-    navigate('/productos')
-    toast.success('Producto agregado correctamente')
+  async function handleForm(data) {
+    const formData = new FormData();
+    formData.append("nombre", data.nombre);
+    formData.append("descripcion", data.descripcion);
+    formData.append("precio", data.precio);
+    formData.append("stock", data.stock);
+  
+    
+    if (data.imagen && data.imagen[0]) {
+      formData.append("imagen", data.imagen[0]);
+    }
+  
+    await postProductos(formData);
+    navigate('/productos');
+    toast.success('Producto agregado correctamente');
   }
 
   useEffect(() => {
@@ -51,6 +62,10 @@ export const FormPage = () => {
   return (
     <div className="flex justify-center items-center h-[87vh] w-full bg-amber-200">
       <form className="flex flex-col justify-center items-center h-[500px] gap-5 rounded-3xl w-[350px] bg-white shadow-[5px_10px_15px_#000]" method="post" onSubmit={handleSubmit(handleForm)}>
+        <div>
+          <label className="flex flex-col gap-2" htmlFor="imagen">Imagen</label>
+          <input type="file" name="imagen" id="imagen" {...register("imagen", { required: true })} className="p-3 bg-blue-500 w-[300px] text-white"/>
+        </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="nombre">Nombre</label>
           <input className="p-3 bg-blue-500 w-[300px] focus:text-white focus:shadow-[5px_5px_8px_#000]" id="nombre" type="text" name="nombre" placeholder="Ingrese el nombre del producto" {...register("nombre", { required: true })}/>
