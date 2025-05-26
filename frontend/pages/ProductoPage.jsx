@@ -37,7 +37,7 @@ export const ProductoPage = () => {
         <div className="md:grid md:grid-cols-3 w-full mt-7 place-content-center place-items-center gap-3 sm:flex sm:flex-col sm:justify-center sm:items-center">
 
           {productos.map(producto => (
-              <Producto key={producto.id} id={producto.id} nombre={producto.nombre} precio={producto.precio} stock={producto.stock} descripcion={producto.descripcion}/>
+              <Producto key={producto.id} id={producto.id} imagen={producto.imagen} nombre={producto.nombre} precio={producto.precio} stock={producto.stock} descripcion={producto.descripcion}/>
           ))}
 
           {productos.length == 0 && (
