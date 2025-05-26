@@ -83,9 +83,9 @@ export const FormPage = () => {
           <input className="p-3 bg-blue-500 w-[300px] focus:text-white focus:shadow-[5px_5px_8px_#000]" type="number" name="stock" id="stock" placeholder="Ingrese la cantidad de stock" {...register("stock", { required: true })} /> 
         </div>
         {params.id ? (
-          <div>
-            <input type="submit" value='Eliminar' onClick={handleEliminar} />
-            <input type="submit" value='Editar' onClick={handleEditar} />
+          <div className="flex gap-5">
+            <input className="bg-red-600 rounded-3xl hover:bg-red-700 text-white p-4 cursor-pointer" type="submit" value='Eliminar' onClick={handleEliminar} />
+            <input className="bg-yellow-400 rounded-3xl hover:bg-yellow-500 text-black p-4 cursor-pointer" type="submit" value='Editar' onClick={handleEditar} />
           </div>
         ) : (
           <input type="submit" className="bg-amber-300 p-4 cursor-pointer hover:bg-amber-400" value='Agregar producto' />

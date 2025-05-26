@@ -24,7 +24,7 @@ export const ProductoPage = () => {
     <div className="pb-5">
 
       <form className="mt-4 flex gap-5 align-center justify-center m-auto" method="post">
-          <input className="bg-white text-dark shadow-[10px_5px_10px_#000] p-2 w-[300px]" type="text" placeholder="Busqueda de producto" onChange={(e) => {
+          <input className="bg-white text-dark shadow-[10px_5px_10px_#000] p-2 w-[300px]" type="text" placeholder="Busqueda de productos" onChange={(e) => {
             setBusqueda(e.target.value)
             setModoBusqueda(true)
           }} />
