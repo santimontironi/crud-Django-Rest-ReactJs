@@ -59,7 +59,7 @@ export const ProductoPage = () => {
           ))}
 
           {productos.length == 0 && (
-            <h1>No hay productos agregados.</h1>
+            <h1 className="col-span-3 text-white text-[40px] underline decoration-solid decoration-amber-300">No hay productos agregados.</h1>
           )}
         </div>
       )}
