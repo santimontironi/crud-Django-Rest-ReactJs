@@ -10,7 +10,7 @@ export const App = () => {
       <BrowserRouter>
         <Navigation/>
         <Routes>
-          <Route path="/" element={<Navigate to = '/autenticacion' />} />
+          <Route path="/" element={<Navigate to = '/auth' />} />
           <Route path="/auth" element={<Auth/>}/>
           <Route path="/productos" element={<ProductoPage/>} />
           <Route path="/productoForm" element={<FormPage/>} />
