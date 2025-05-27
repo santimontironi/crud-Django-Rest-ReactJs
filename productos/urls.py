@@ -23,8 +23,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include('productosapp.urls')),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # login
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')  # actualizar el token de ingreso
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # se genera el token al ingresar
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')  # se actualiza el token de ingreso
 ]
 
 if settings.DEBUG:
