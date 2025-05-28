@@ -6,7 +6,7 @@ const api = axios.create({
     baseURL: 'http://127.0.0.1:8000/api/', 
 });
 
-//funcion que se ejecuta antes del axios, es para verificar si existe el token de acceso
+//funcion que se ejecuta antes de cada metodo http, es para verificar si existe el token de acceso
 api.interceptors.request.use(
     (request) => {
       const token = localStorage.getItem("accessToken");
@@ -14,8 +14,7 @@ api.interceptors.request.use(
         request.headers.Authorization = `Bearer ${token}`;
       }
       return request;
-    },
-    (error) => Promise.reject(error)
+    }
 );
 
 //funcion login
