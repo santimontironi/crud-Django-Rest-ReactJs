@@ -3,6 +3,7 @@ import { ProductoPage } from "../pages/ProductoPage";
 import { FormPage } from "../pages/FormPage";
 import { Auth } from "../pages/Auth";
 import { Navigation } from "../components/Navigation";
+import { Register } from "../pages/Register";
 
 
 const LayoutWithNav = () => (
@@ -21,6 +22,8 @@ export const App = () => {
           <Route path="/" element={<Navigate to="/auth" />} />
           
           <Route path="/auth" element={<Auth />} />
+        
+          <Route path="/register" element={<Register />}/>
 
           <Route element={<LayoutWithNav />}>
             <Route path="/productos" element={<ProductoPage />} />
