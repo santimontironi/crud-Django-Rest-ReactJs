@@ -25,6 +25,16 @@ export const login = async (username, password) => {
     return res.data;
 };
 
+//funcion register
+export const registerUser = async (username, email, password) => {
+  try {
+    const res = await api.post('register/', { username, email, password });
+    return res.data; 
+  } catch (error) {
+    throw error.response.data; 
+  }
+};
+
 //funcion logout
 export const logout = () => {
     localStorage.removeItem("accessToken");

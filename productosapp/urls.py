@@ -7,5 +7,5 @@ router.register(r'productos',ProductoView) #se registra el viewset ProductoView 
 
 urlpatterns = [
     path('',include(router.urls)),
-    path('/register',UserView.as_view())
+    path('register/',UserView.as_view())
 ]
