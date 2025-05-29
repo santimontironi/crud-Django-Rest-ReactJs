@@ -8,6 +8,8 @@ class ProductoSerializer(serializers.ModelSerializer):
         model = Producto
         fields = '__all__'
         
+        
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username','password','email']
