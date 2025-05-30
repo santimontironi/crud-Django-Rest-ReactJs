@@ -19,6 +19,9 @@ export const Register = () => {
     }
     catch(error){
       setErrorRegister(error)
+      setUsername('')
+      setEmail('')
+      setPassword('')
     }
   }
 
