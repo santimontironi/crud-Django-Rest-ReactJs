@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom";
 import { registerUser } from "../api/fetch"
+import fondoRegistro from '../src/assets/img/fondoRegistro.jpg'
 
 export const Register = () => {
 
@@ -26,7 +27,7 @@ export const Register = () => {
   }
 
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-screen bg-no-repeat bg-cover bg-center bg-gradient-to-b from-black/70 to-black/90 bg-blend-overlay"style={{ backgroundImage: `url(${fondoRegistro})` }}>
         <h2 className="w-full h-[250px] text-[80px] text-center text-white flex justify-center items-center tracking-wider bg-gradient-to-r from-blue-500 to-blue-700 shadow-[5px_5px_16px_#000]">Registro</h2>
         <form className="text-white flex flex-col justify-center w-[450px] h-[auto] p-4 m-auto items-center mt-5 border-3 border-yellow-200 shadow-[7px_8px_15px_#000] hover:bg-blue-700" onSubmit={handleRegister}>
           <div className="mb-3 flex flex-col gap-2 items-start">
