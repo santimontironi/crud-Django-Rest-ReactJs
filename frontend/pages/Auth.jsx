@@ -32,7 +32,7 @@ export const Auth = () => {
           <label htmlFor="clave">Clave:</label>
           <input className="text-white p-3 w-[260px] border-2 border-yellow-200" type="password" id="clave" value={password} onChange={(e) => setPassword(e.target.value)} required/>
         </div>
-        <input className="p-3 bg-amber-300 text-black rounded-2xl" type="submit" value="Ingresar" />
+        <input className="p-3 bg-amber-300 text-black rounded-2xl cursor-pointer hover:bg-amber-500" type="submit" value="Ingresar" />
         <p className="mt-3">Si no tenés una cuenta:  <Link className="underline text-yellow-200 hover:text-yellow-300" to="/register">Regístrate</Link></p>
       </form>
       {error &&(
