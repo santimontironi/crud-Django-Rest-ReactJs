@@ -9,6 +9,7 @@ export const Register = () => {
   const[email,setEmail] = useState("")
   const[username,setUsername] = useState("")
   const[password,setPassword] = useState("")
+  const[errorRegister,setErrorRegister] = useState("")
 
   async function handleRegister(e){
     e.preventDefault()
@@ -17,7 +18,7 @@ export const Register = () => {
       navigate('/productos')
     }
     catch(error){
-      console.log(error)
+      setErrorRegister(error)
     }
   }
 
@@ -40,6 +41,10 @@ export const Register = () => {
           <input className="p-3 bg-amber-300 text-black rounded-2xl cursor-pointer" type="submit" value="Registrate" />
           <p className="mt-3">Si ya tenés cuenta:  <Link className="underline text-yellow-200 hover:text-yellow-300" to="/auth">Ingresá</Link></p>
         </form>
+
+        {errorRegister && (
+          <p>Nombre de usuario o email no válidos</p>
+        )}
     </div>
   )
 }

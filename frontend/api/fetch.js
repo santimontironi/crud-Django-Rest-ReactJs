@@ -28,7 +28,15 @@ export const login = async (username, password) => {
 //funcion register
 export const registerUser = async (username, email, password) => {
   try {
-    const res = await api.post('register/', { username, email, password });
+    const res = await api.post(
+      'register/',
+      { username, email, password },
+      {
+        headers:{
+          Authorization:''
+        }
+      }
+    );
     return res.data; 
   } catch (error) {
     throw error.response.data; 
