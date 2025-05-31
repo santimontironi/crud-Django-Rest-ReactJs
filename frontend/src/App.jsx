@@ -4,6 +4,7 @@ import { FormPage } from "../pages/FormPage";
 import { Auth } from "../pages/Auth";
 import { Navigation } from "../components/Navigation";
 import { Register } from "../pages/Register";
+import { PrivateRoute } from "../components/PrivateRoute";
 
 
 const LayoutWithNav = () => (
@@ -24,11 +25,14 @@ export const App = () => {
           <Route path="/auth" element={<Auth />} />
         
           <Route path="/register" element={<Register />}/>
+          
 
-          <Route element={<LayoutWithNav />}>
-            <Route path="/productos" element={<ProductoPage />} />
-            <Route path="/productoForm" element={<FormPage />} />
-            <Route path="/producto/:id" element={<FormPage />} />
+          <Route element={<PrivateRoute/>}>
+            <Route element={<LayoutWithNav />}>
+              <Route path="/productos" element={<ProductoPage />} />
+              <Route path="/productoForm" element={<FormPage />} />
+              <Route path="/producto/:id" element={<FormPage />} />
+            </Route>
           </Route>
           
         </Routes>
