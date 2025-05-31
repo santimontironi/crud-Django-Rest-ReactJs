@@ -10,8 +10,13 @@ export const ProductoPage = () => {
 
   useEffect(() => {
     async function loadProductos() {
-      const res = await getProductos()
-      setProductos(res.data)
+      try{
+        const res = await getProductos()
+        setProductos(res.data)
+      }
+      catch(error){
+        console.log(error)
+      }
     }
     loadProductos()
   },[])

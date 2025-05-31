@@ -19,10 +19,15 @@ api.interceptors.request.use(
 
 //funcion login
 export const login = async (username, password) => {
-    const res = await api.post("token/", { username, password });
-    localStorage.setItem("accessToken", res.data.access);
-    localStorage.setItem("refreshToken", res.data.refresh);
-    return res.data;
+    try{
+      const res = await api.post("token/", { username, password });
+      localStorage.setItem("accessToken", res.data.access);
+      localStorage.setItem("refreshToken", res.data.refresh);
+      return res.data;
+    }
+    catch(error){
+      console.log(error)
+    }
 };
 
 //funcion register
