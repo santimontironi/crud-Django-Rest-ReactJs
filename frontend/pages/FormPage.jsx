@@ -60,8 +60,8 @@ export const FormPage = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-[87vh] w-full bg-amber-200">
-      <form className="flex flex-col justify-center items-center h-auto pt-4 pb-4 gap-5 rounded-3xl w-[350px] bg-white shadow-[5px_10px_15px_#000]" method="post" onSubmit={handleSubmit(handleForm)}>
+    <div className="flex justify-center items-center h-[100vh] w-full bg-amber-200">
+      <form className="flex flex-col justify-center items-center h-auto mt-2 pt-4 pb-4 gap-5 rounded-3xl w-[350px] bg-white shadow-[5px_10px_15px_#000]" method="post" onSubmit={handleSubmit(handleForm)}>
         <div>
           <label className="flex flex-col gap-2" htmlFor="imagen">Imagen</label>
           <input type="file" name="imagen" id="imagen" {...register("imagen", { required: true })} className="p-3 bg-blue-500 w-[300px] text-white"/>
