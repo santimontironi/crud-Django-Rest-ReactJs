@@ -24,6 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 
+# GMAIL SETTINGS
+MAIL_USERNAME=config('MAIL_USERNAME')
+MAIL_PASSWORD=config('MAIL_PASSWORD')
+MAIL_SERVER=config('MAIL_SERVER')
+MAIL_PORT=config('MAIL_PORT')
+MAIL_USE_SSL=config('MAIL_USE_SSL')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
