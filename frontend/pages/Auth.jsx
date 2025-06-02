@@ -25,7 +25,7 @@ export const Auth = () => {
   return (
     <div className="w-full min-h-screen bg-no-repeat bg-cover bg-center bg-gradient-to-b from-black/70 to-black/90 bg-blend-overlay"style={{ backgroundImage: `url(${fondoAuth})` }}>
       <h2 className="w-full h-[180px] text-[80px] text-center flex justify-center items-center text-white">Iniciar sesión</h2>
-      <form className="text-white flex flex-col justify-center w-[450px] h-[auto] p-4 m-auto items-center mt-7 border-3 border-yellow-200 shadow-[7px_8px_15px_#000] hover:bg-blue-700" onSubmit={handleSubmit}>
+      <form className="text-white flex flex-col justify-center w-[450px] h-[auto] p-4 m-auto items-center mt-7 border-3 border-yellow-200 hover:shadow-[7px_8px_15px_#000]" onSubmit={handleSubmit}>
         <div className="mb-3 flex flex-col gap-2 items-start">
           <label htmlFor="usuario">Usuario:</label>
           <input className="text-white p-3 w-[260px] border-2 border-yellow-200" type="text" id="usuario" value={username} onChange={(e) => setUsername(e.target.value)} required/>
