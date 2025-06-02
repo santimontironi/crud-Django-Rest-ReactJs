@@ -21,6 +21,18 @@ export const ProductoPage = () => {
   },[])
 
   useEffect(() => {
+    if(location.state?.mensajeProductoEliminado){
+      toast.error("Producto eliminado correctamente.")
+    }
+  },[])
+  
+  useEffect(() => {
+    if(location.state?.mensajeProductoEditado){
+      toast.info("Nuevo producto agregado.")
+    }
+  },[])
+
+  useEffect(() => {
     async function loadProductos() {
       try{
         const res = await getProductos()

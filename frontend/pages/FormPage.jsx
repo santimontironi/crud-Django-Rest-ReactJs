@@ -48,7 +48,9 @@ export const FormPage = () => {
     const aceptar = window.confirm('¿Estas seguro de eliminar este producto?')
     if(aceptar){
       await deleteProducto(params.id)
-      navigate('/productos')
+      navigate('/productos',{
+        state:{'mensajeProductoEliminado':true}
+      })
     }
   }
 
@@ -57,7 +59,9 @@ export const FormPage = () => {
     if(aceptar){
       const data = getValues()
       await putProducto(params.id,data)
-      navigate('/productos')
+      navigate('/productos',{
+        state:{'mensajeProductoEditado':true}
+      })
     }
   }
 
