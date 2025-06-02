@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom";
 import { registerUser } from "../api/fetch"
+import 'react-toastify/dist/ReactToastify.css';
 import fondoRegistro from '../src/assets/img/fondoRegistro.jpg'
 
 export const Register = () => {
@@ -16,7 +17,9 @@ export const Register = () => {
     e.preventDefault()
     try{
       await registerUser(username,email,password)
-      navigate('/productos')
+      navigate('/auth',{
+        state:{'registroExitoso':true}
+      })  
     }
     catch(error){
       setErrorRegister(error)

@@ -1,13 +1,23 @@
-import { useState } from "react"
-import { useNavigate, Link } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { useNavigate, Link, useLocation } from "react-router-dom"
 import { login } from "../api/fetch"
+import { ToastContainer, toast } from 'react-toastify';
 import fondoAuth from '../src/assets/img/fondoAuth.jpg'
 
 export const Auth = () => {
   const[username,setUsername] = useState("")
   const[password,setPassword] = useState("")
   const[errorAuth,setErrorAuth] = useState("")
+
   const navigate = useNavigate()
+
+  const location = useLocation()
+
+  useEffect(() => {
+    if(location.state.registroExitoso){
+      toast.success("Usuario registrado correctamente, ahora inicie sesión")
+    }
+  },[])
 
   async function handleSubmit(e){
     e.preventDefault()
@@ -40,6 +50,8 @@ export const Auth = () => {
       {errorAuth &&(
         <p>Datos no válidos</p>
       )}
+
+      <ToastContainer/>
     </div>
   )
 }

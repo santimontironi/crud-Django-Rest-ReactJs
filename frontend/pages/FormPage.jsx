@@ -2,7 +2,8 @@
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { postProductos, getProducto, deleteProducto, putProducto } from "../api/fetch";
-import { toast } from "react-hot-toast";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from "react";
 
 export const FormPage = () => {
@@ -92,6 +93,8 @@ export const FormPage = () => {
         )}
 
       </form>
+
+      <ToastContainer/> 
     </div>
   )
 }
