@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useNavigate, Link, useLocation } from "react-router-dom"
 import { login } from "../api/fetch"
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import fondoAuth from '../src/assets/img/fondoAuth.jpg'
 
 export const Auth = () => {
@@ -14,7 +15,7 @@ export const Auth = () => {
   const location = useLocation()
 
   useEffect(() => {
-    if(location.state.registroExitoso){
+    if(location.state?.registroExitoso){
       toast.success("Usuario registrado correctamente, ahora inicie sesión")
     }
   },[])

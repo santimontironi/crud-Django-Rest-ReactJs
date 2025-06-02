@@ -1,12 +1,24 @@
 import { useEffect, useState } from "react"
 import { getProductos } from "../api/fetch"
 import { Producto } from "../components/Producto"
+import { useLocation } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const ProductoPage = () => {
 
   const[productos,setProductos] = useState([])
   const[busqueda,setBusqueda] = useState('')
   const[modoBusqueda,setModoBusqueda] = useState(false)
+
+  const location = useLocation()
+
+  useEffect(() => {
+    if(location.state?.mensajeNuevoProducto){
+      toast.success("Nuevo producto agregado.")
+    }
+  },[])
 
   useEffect(() => {
     async function loadProductos() {
@@ -69,6 +81,7 @@ export const ProductoPage = () => {
         </div>
       )}
     
+      <ToastContainer/>
     </div>
     
   )
