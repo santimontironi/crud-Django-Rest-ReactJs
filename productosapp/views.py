@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from .serializer import ProductoSerializer, UserSerializer
 from rest_framework.permissions import IsAuthenticated
-from productos.settings import EMAIL_USERNAME as emisor
+from productos.settings import EMAIL_HOST_USER as emisor
 
 # Create your views here...
 class ProductoView(viewsets.ModelViewSet):
