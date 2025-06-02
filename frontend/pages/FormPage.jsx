@@ -35,6 +35,7 @@ export const FormPage = () => {
     async function datosProductos(){
       if(params.id){
         const res = await getProducto(params.id)
+        setValue('imagen',res.data.imagen)
         setValue('nombre',res.data.nombre)
         setValue('descripcion',res.data.descripcion)
         setValue('precio',res.data.precio)
