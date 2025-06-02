@@ -25,11 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # GMAIL SETTINGS
-MAIL_USERNAME=config('MAIL_USERNAME')
-MAIL_PASSWORD=config('MAIL_PASSWORD')
-MAIL_SERVER=config('MAIL_SERVER')
-MAIL_PORT=config('MAIL_PORT')
-MAIL_USE_SSL=config('MAIL_USE_SSL')
+EMAIL_BACKEND = config("EMAIL_BACKEND")
+EMAIL_USERNAME=config('EMAIL_USERNAME')
+EMAIL_PASSWORD=config('EMAIL_PASSWORD')
+EMAIL_SERVER=config('EMAIL_SERVER')
+EMAIL_PORT=config('EMAIL_PORT')
+EMAIL_USE_SSL=config('EMAIL_USE_SSL')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
