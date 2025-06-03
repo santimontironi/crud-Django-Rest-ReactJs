@@ -22,9 +22,12 @@ export const Auth = () => {
 
   async function handleSubmit(e){
     e.preventDefault()
+    toast.loading("Cargando...")
     try{
       await login(username,password)
-      navigate('/productos')
+      navigate('/productos',{
+        state:{'mensajeIngreso':true}
+      })
     }
     catch(error){
       setErrorAuth(error)

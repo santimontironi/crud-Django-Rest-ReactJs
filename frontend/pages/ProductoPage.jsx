@@ -15,6 +15,12 @@ export const ProductoPage = () => {
   const location = useLocation()
 
   useEffect(() => {
+    if(location.state?.mensajeIngreso){
+      toast.success("Inicio de sesión correcto.")
+    }
+  },[])
+
+  useEffect(() => {
     if(location.state?.mensajeNuevoProducto){
       toast.success("Nuevo producto agregado.")
     }
