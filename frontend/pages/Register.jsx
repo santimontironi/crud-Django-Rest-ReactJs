@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom";
 import { registerUser } from "../api/fetch"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import fondoRegistro from '../src/assets/img/fondoRegistro.jpg'
 
 export const Register = () => {
@@ -14,6 +16,7 @@ export const Register = () => {
 
   async function handleRegister(e){
     e.preventDefault()
+    toast.loading("Cargando...")
     try{
       await registerUser(username,email,password)
       navigate('/auth',{
@@ -51,6 +54,8 @@ export const Register = () => {
         {errorRegister && (
           <p>Nombre de usuario o email no válidos</p>
         )}
+
+        <ToastContainer/>
     </div>
   )
 }
