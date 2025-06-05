@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { postProductos, getProducto, deleteProducto, putProducto } from "../api/fetch";
+import { postProductos, getProducto, deleteProducto, patchProducto } from "../api/fetch";
 import { useEffect } from "react";
 
 export const FormPage = () => {
@@ -23,7 +23,7 @@ export const FormPage = () => {
     }
   
     if (params.id) {
-      await putProducto(params.id, formData);
+      await patchProducto(params.id, formData);
       navigate("/productos", {
         state: { mensajeProductoEditado: true },
       });
@@ -39,7 +39,6 @@ export const FormPage = () => {
     async function datosProductos(){
       if(params.id){
         const res = await getProducto(params.id)
-        setValue('imagen',res.data.imagen)
         setValue('nombre',res.data.nombre)
         setValue('descripcion',res.data.descripcion)
         setValue('precio',res.data.precio)
@@ -64,7 +63,7 @@ export const FormPage = () => {
       <form className="flex flex-col justify-center items-center h-auto mt-2 pt-4 pb-4 gap-5 rounded-3xl w-[350px] bg-white shadow-[5px_10px_15px_#000]" method="post" onSubmit={handleSubmit(handleForm)}>
         <div>
           <label className="flex flex-col gap-2" htmlFor="imagen">Imagen</label>
-          <input type="file" name="imagen" id="imagen" {...register("imagen", { required: true })} className="p-3 bg-blue-500 w-[300px] text-white"/>
+          <input type="file" name="imagen" id="imagen" {...register("imagen", params.id ? {} : { required: true })} className="p-3 bg-blue-500 w-[300px] text-white"/>
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="nombre">Nombre</label>

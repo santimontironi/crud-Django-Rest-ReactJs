@@ -8,7 +8,7 @@ class ProductoSerializer(serializers.ModelSerializer):
         model = Producto
         fields = '__all__'
         settings = {
-            'imagen': {'required': False, 'allow_null': True}
+            'imagen': {'required': False}
         }
         
         
