@@ -7,6 +7,9 @@ class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
         fields = '__all__'
+        settings = {
+            'imagen': {'required': False, 'allow_null': True}
+        }
         
         
 class UserSerializer(serializers.ModelSerializer):

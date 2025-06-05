@@ -69,6 +69,10 @@ export const getProducto = (id) => api.get(`productos/${id}/`);
 
 export const deleteProducto = (id) => api.delete(`productos/${id}/`);
 
-export const putProducto = (id, data) => api.put(`productos/${id}/`, data);
+export const putProducto = (id, data) => api.put(`productos/${id}/`, data,{
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+});
 
 

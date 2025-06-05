@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 export const FormPage = () => {
 
-  const { register, handleSubmit, setValue, getValues} = useForm() //register conecta cada input al sistema de React Hook Form (sabe su valor, cuándo cambia, etc.), setValue es para darle valores a los inputs.
+  const { register, handleSubmit, setValue} = useForm() //register conecta cada input al sistema de React Hook Form (sabe su valor, cuándo cambia, etc.), setValue es para darle valores a los inputs.
 
   const navigate = useNavigate()
   const params = useParams()
@@ -18,17 +18,21 @@ export const FormPage = () => {
     formData.append("precio", data.precio);
     formData.append("stock", data.stock);
   
-    
     if (data.imagen && data.imagen[0]) {
       formData.append("imagen", data.imagen[0]);
     }
   
-    await postProductos(formData);
-
-    navigate('/productos',{
-      state:{'mensajeNuevoProducto':true}
-    });
-    
+    if (params.id) {
+      await putProducto(params.id, formData);
+      navigate("/productos", {
+        state: { mensajeProductoEditado: true },
+      });
+    } else {
+      await postProductos(formData);
+      navigate("/productos", {
+        state: { mensajeNuevoProducto: true },
+      });
+    }
   }
 
   useEffect(() => {
@@ -53,27 +57,6 @@ export const FormPage = () => {
         state:{'mensajeProductoEliminado':true}
       })
     }
-  }
-
-  const handleEditar = async () => {
-      const aceptar = window.confirm('¿Estas seguro que deseas editar este producto?')
-      if (aceptar) {
-        const data = getValues();
-        const formData = new FormData();
-        formData.append("nombre", data.nombre);
-        formData.append("descripcion", data.descripcion);
-        formData.append("precio", data.precio);
-        formData.append("stock", data.stock);
-  
-        if (data.imagen && data.imagen[0]) {
-          formData.append("imagen", data.imagen[0]);
-        }
-  
-        await putProducto(params.id, formData);
-        navigate('/productos', {
-          state: { 'mensajeProductoEditado': true }
-        });
-      }
   }
 
   return (
@@ -101,11 +84,11 @@ export const FormPage = () => {
         </div>
         {params.id ? (
           <div className="flex gap-5">
-            <input className="bg-red-600 rounded-3xl hover:bg-red-700 text-white p-4 cursor-pointer" type="submit" value='Eliminar' onClick={handleEliminar} />
-            <input className="bg-yellow-400 rounded-3xl hover:bg-yellow-500 text-black p-4 cursor-pointer" type="submit" value='Editar' onClick={handleEditar} />
+            <button className="bg-red-600 rounded-3xl hover:bg-red-700 text-white p-4 cursor-pointer" value='Eliminar' onClick={handleEliminar}>Eliminar</button>
+            <input type="submit" className="bg-amber-300 p-4 cursor-pointer hover:bg-amber-400" value= "Editar producto" />
           </div>
         ) : (
-          <input type="submit" className="bg-amber-300 p-4 cursor-pointer hover:bg-amber-400" value='Agregar producto' />
+          <input type="submit" className="bg-amber-300 p-4 cursor-pointer hover:bg-amber-400" value= "Agregar producto" />
         )}
 
       </form>
