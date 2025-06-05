@@ -56,14 +56,24 @@ export const FormPage = () => {
   }
 
   const handleEditar = async () => {
-    const aceptar = window.confirm('¿Estas seguro que deseas editar este producto?')
-    if(aceptar){
-      const data = getValues()
-      await putProducto(params.id,data)
-      navigate('/productos',{
-        state:{'mensajeProductoEditado':true}
-      })
-    }
+      const aceptar = window.confirm('¿Estas seguro que deseas editar este producto?')
+      if (aceptar) {
+        const data = getValues();
+        const formData = new FormData();
+        formData.append("nombre", data.nombre);
+        formData.append("descripcion", data.descripcion);
+        formData.append("precio", data.precio);
+        formData.append("stock", data.stock);
+  
+        if (data.imagen && data.imagen[0]) {
+          formData.append("imagen", data.imagen[0]);
+        }
+  
+        await putProducto(params.id, formData);
+        navigate('/productos', {
+          state: { 'mensajeProductoEditado': true }
+        });
+      }
   }
 
   return (
