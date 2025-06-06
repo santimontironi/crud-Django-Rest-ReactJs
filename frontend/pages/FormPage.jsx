@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { postProductos, getProducto, deleteProducto, patchProducto } from "../api/fetch";
-import { useEffect, useState } from "react";
+import { postProductos, getProducto, deleteProducto, putProducto } from "../api/fetch";
+import { useEffect } from "react";
 
 export const FormPage = () => {
 
@@ -23,7 +23,7 @@ export const FormPage = () => {
     }
   
     if (params.id) {
-      await patchProducto(params.id, formData);
+      await putProducto(params.id, formData);
       navigate("/productos", {
         state: { mensajeProductoEditado: true },
       });

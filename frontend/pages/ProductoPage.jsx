@@ -35,7 +35,7 @@ export const ProductoPage = () => {
   useEffect(() => {
     if(location.state?.mensajeProductoEditado){
       console.log("notificacion de editar producto activa")
-      toast.info("Nuevo producto agregado.")
+      toast.info("Producto editado correctamente.")
     }
   },[])
 
