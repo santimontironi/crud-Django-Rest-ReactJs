@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { postProductos, getProducto, deleteProducto, patchProducto } from "../api/fetch";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const FormPage = () => {
 
@@ -61,10 +61,12 @@ export const FormPage = () => {
   return (
     <div className="flex justify-center items-center h-[100vh] w-full bg-amber-200">
       <form className="flex flex-col justify-center items-center h-auto mt-2 pt-4 pb-4 gap-5 rounded-3xl w-[350px] bg-white shadow-[5px_10px_15px_#000]" method="post" onSubmit={handleSubmit(handleForm)}>
-        <div>
-          <label className="flex flex-col gap-2" htmlFor="imagen">Imagen</label>
-          <input type="file" name="imagen" id="imagen" {...register("imagen", params.id ? {} : { required: true })} className="p-3 bg-blue-500 w-[300px] text-white"/>
-        </div>
+        {!params.id && (
+          <div>
+           <label className="flex flex-col gap-2" htmlFor="imagen">Imagen</label>
+           <input type="file" name="imagen" id="imagen" {...register("imagen", params.id ? {} : { required: true })} className="p-3 bg-blue-500 w-[300px] text-white"/>
+         </div>
+        )}
         <div className="flex flex-col gap-2">
           <label htmlFor="nombre">Nombre</label>
           <input className="p-3 bg-blue-500 w-[300px] focus:text-white focus:shadow-[5px_5px_8px_#000]" id="nombre" type="text" name="nombre" placeholder="Ingrese el nombre del producto" {...register("nombre", { required: true })}/>
@@ -83,11 +85,11 @@ export const FormPage = () => {
         </div>
         {params.id ? (
           <div className="flex gap-5">
-            <button className="bg-red-600 rounded-3xl hover:bg-red-700 text-white p-4 cursor-pointer" value='Eliminar' onClick={handleEliminar}>Eliminar</button>
-            <input type="submit" className="bg-amber-300 p-4 cursor-pointer hover:bg-amber-400" value= "Editar producto" />
+            <button className="bg-red-600 rounded-3xl hover:bg-red-700 text-white p-4 cursor-pointer" value='Eliminar' onClick={handleEliminar} type="button">Eliminar</button>
+            <button className="bg-amber-300 p-4 cursor-pointer hover:bg-amber-400" type="submit">Editar producto</button>
           </div>
         ) : (
-          <input type="submit" className="bg-amber-300 p-4 cursor-pointer hover:bg-amber-400" value= "Agregar producto" />
+          <button className="bg-amber-300 p-4 cursor-pointer hover:bg-amber-400" type="submit">Agregar producto</button>
         )}
 
       </form>
