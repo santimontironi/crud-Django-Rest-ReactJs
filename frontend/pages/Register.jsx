@@ -34,7 +34,7 @@ export const Register = () => {
   return (
     <div className="w-full min-h-screen bg-no-repeat bg-cover bg-center"style={{ backgroundImage: `url(${fondoRegistro})` }}>
         <h2 className="w-full h-[180px] text-[80px] text-center text-white flex justify-center items-center">Registro</h2>
-        <form className="text-white flex flex-col justify-center w-[450px] h-[auto] p-4 m-auto items-center mt-1 border-3 border-yellow-200 hover:shadow-[7px_8px_15px_#000]" onSubmit={handleRegister}>
+        <form className="text-white flex flex-col justify-center md:w-[450px] lg:w-[500px] w-[350px] h-[auto] p-4 m-auto items-center mt-1 border-3 border-yellow-200 hover:shadow-[7px_8px_15px_#000]" onSubmit={handleRegister}>
           <div className="mb-3 flex flex-col gap-2 items-start">
             <label htmlFor="email">Email:</label>
             <input className="text-white p-3 w-[260px] border-2 border-yellow-200" value={email} type="email" id="email" onChange={(e) => setEmail(e.target.value)} required/>
