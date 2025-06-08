@@ -82,7 +82,7 @@ export const ProductoPage = () => {
             />
           ))
         ) : (
-          <h1 className="col-span-3 text-white text-[40px] underline decoration-solid decoration-amber-300">
+          <h1 className="col-span-3 text-center lg:col-span-3 md:col-span-3 text-white text-[30px] lg:text-[40px] md:text-[40px] underline decoration-solid decoration-amber-300">
             No hay productos con ese nombre.
           </h1>
         )}
@@ -95,7 +95,7 @@ export const ProductoPage = () => {
           ))}
 
           {productos.length == 0 && (
-            <h1 className="col-span-3 text-white text-[40px] underline decoration-solid decoration-amber-300">No hay productos agregados.</h1>
+            <h1 className="col-span-3 text-center text-white text-[40px] underline decoration-solid decoration-amber-300 lg:col-span-3 md:col-span-3">No hay productos agregados.</h1>
           )}
         </div>
       )}
