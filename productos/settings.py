@@ -150,7 +150,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Aquí apunta a la carpeta media 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #cors authorization
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'https://crud-django-rest-reactjs.onrender.com/'
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'crud-django-rest-reactjs.onrender.com',
 ]
