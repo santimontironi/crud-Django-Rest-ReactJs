@@ -154,5 +154,6 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'crud-django-rest-reactjs.onrender.com',
-    'stockproductos.netlify.app'
+    'stockproductos.netlify.app',
+    'https://stockproductos.netlify.app/'
 ]
