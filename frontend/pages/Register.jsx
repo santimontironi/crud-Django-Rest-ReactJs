@@ -19,11 +19,13 @@ export const Register = () => {
     toast.loading("Cargando...")
     try{
       await registerUser(username,email,password)
+      toast.dismiss()
       navigate('/auth',{
         state:{'registroExitoso':true}
       })  
     }
     catch(error){
+      toast.dismiss()
       setErrorRegister(error)
       setUsername('')
       setEmail('')

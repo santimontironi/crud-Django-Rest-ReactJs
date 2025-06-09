@@ -3,7 +3,7 @@ import axios from "axios";
 //LOGIN Y AUTENTICACION
 
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api/', 
+  baseURL: 'https://crud-django-rest-reactjs.onrender.com/api/', 
 });
 
 //funcion que se ejecuta antes de cada metodo http, es para verificar si existe el token de acceso

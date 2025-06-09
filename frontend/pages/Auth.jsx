@@ -25,11 +25,13 @@ export const Auth = () => {
     toast.loading("Cargando...")
     try{
       await login(username,password)
+      toast.dismiss()
       navigate('/productos',{
         state:{'mensajeIngreso':true}
       })
     }
     catch(error){
+      toast.dismiss()
       setErrorAuth(error)
       setUsername("")
       setPassword("")
