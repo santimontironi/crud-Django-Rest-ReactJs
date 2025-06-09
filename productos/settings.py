@@ -150,10 +150,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Aquí apunta a la carpeta media 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #cors authorization
+CORS_ALLOWED_ORIGINS = [
+    "https://stockproductos.netlify.app",
+]
+
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'crud-django-rest-reactjs.onrender.com',
     'stockproductos.netlify.app',
-    'https://stockproductos.netlify.app/'
 ]
