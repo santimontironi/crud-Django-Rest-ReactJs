@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'productos.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://gestor_productos_database_user:UC7I5ynlpyHonRfqd2YOtKXlxjNfEQco@dpg-d13hvk3ipnbc73balpa0-a/gestor_productos_database',
+        default='postgresql://postgres:postgres@localhost:5432/gestor',
         conn_max_age=600
     )
 }
