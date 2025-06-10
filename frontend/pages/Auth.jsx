@@ -54,7 +54,7 @@ export const Auth = () => {
         <p className="mt-3">Si no tenés una cuenta:  <Link className="underline text-yellow-500" to="/register">Regístrate</Link></p>
       </form>
       {errorAuth &&(
-        <p>Datos no válidos</p>
+        <p className="text-center m-auto text-red-600">Datos no válidos</p>
       )}
 
       <ToastContainer/>

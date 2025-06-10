@@ -54,7 +54,7 @@ export const Register = () => {
         <p className="mt-3 text-center bg-white p-2 w-[220px] m-auto">Si ya tenés cuenta: <Link className="text-blue-700 hover:text-blue-500" to="/auth">Ingresá</Link></p>
 
         {errorRegister && (
-          <p>Nombre de usuario o email no válidos</p>
+          <p className="text-center m-auto text-red-600">Nombre de usuario o email no válidos</p>
         )}
 
         <ToastContainer/>
