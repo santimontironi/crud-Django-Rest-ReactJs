@@ -16,13 +16,10 @@
 
 ## ⚙️ Tecnologías utilizadas:
 
-- Python 3
-- Django
 - Django REST Framework
 - PostgreSQL
 - ReactJS
 - TailwindCSS
-- JavaScript (ES6+)
 
 ## 🛠️ Requisitos previos:
 
