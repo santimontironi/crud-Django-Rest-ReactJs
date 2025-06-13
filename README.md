@@ -1,8 +1,7 @@
 # Aplicación CRUD con Django REST Framework y ReactJS
 # Despliegue: https://stockproductos.netlify.app (el backend en Render)
-## 📝 Descripción
 
-### Aplicación full-stack CRUD (Crear, Leer, Actualizar, Eliminar) desarrollada con:
+## Aplicación full-stack CRUD (Crear, Leer, Actualizar, Eliminar) desarrollada con:
 
 - Backend: Django REST Framework (API)
 - Frontend: ReactJS + TailwindCSS (Interfaz de usuario)
